@@ -62,7 +62,7 @@ data = collection.insert_one({'nome': fake.name(), 'email': fake.email()})
 print(data.inserted_id)
 
 #                 6a46ba02a65853bd46f994aa
-my_id = ObjectId("11a1314a131ae44131a13a12")
+my_id = ObjectId("11a1314a131ae44131a13a1b")
 
 print(type(my_id))
 

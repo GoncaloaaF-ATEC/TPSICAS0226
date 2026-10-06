@@ -15,3 +15,11 @@ print(c.__dict__)
 
 p = Pessoa(fake.name(), fake.email())
 print(p.__dict__)
+
+
+def demo(idade = 0):
+    print(idade)
+
+
+demo(12)
+demo()

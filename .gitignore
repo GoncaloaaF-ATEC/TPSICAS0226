@@ -1006,3 +1006,9 @@ hs_err_pid*
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,c,python,jupyternotebooks,pycharm+all,pycharm+iml,pycharm,clion,clion+all,clion+iml,swift,swiftpackagemanager,macos,xcode,android,androidstudio
+
+
+mongo-data/*
+
+*/mongo-data/*
+UC00610 - Criar e integrar bases de dados noSQL nas apps/docker/mongo-data/
