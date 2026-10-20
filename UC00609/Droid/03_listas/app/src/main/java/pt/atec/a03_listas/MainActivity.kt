@@ -20,9 +20,15 @@ import androidx.compose.material3.Button
 
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Modifier
 
 import androidx.compose.ui.unit.dp
@@ -34,8 +40,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            val lst = remember { mutableStateListOf("Val 1","Val 2", "Val 2") }
+            var num by remember { mutableStateOf("") }
+            var lst = remember { mutableStateListOf("Val 1","Val 2", "Val 2") }
             val lst2 = remember { mutableStateListOf("nome 1","nome 2", "nome 3") }
+
+            val lst_filter = lst.filter {
+                it.contains(num)
+            }
+
 
             _03_listasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -46,13 +58,20 @@ class MainActivity : ComponentActivity() {
                         Text(lst.toList().toString(), fontSize = 20.sp)
                         */
 
+                        TextField(value = num, onValueChange = {
+                            //filtrar list
+                            num = it
+
+                        },
+                            modifier = Modifier.fillMaxWidth())
+
                         Button(onClick = {
                             lst.add("val ${lst.size}")
                             //Log.d("Aula", lst.toString())
                         }, modifier = Modifier.fillMaxWidth()) {
                             Text("add elm")
                         }
-                        ShowList(lst.toList(),
+                        ShowList(lst_filter.toList(),
                             onClick = { nome, len ->
                                 Log.d("Aula", "nome: $nome e len: $len")
                             },
