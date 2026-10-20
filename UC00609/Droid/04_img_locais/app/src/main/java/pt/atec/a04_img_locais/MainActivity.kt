@@ -38,20 +38,20 @@ class MainActivity : ComponentActivity() {
 
             Column(verticalArrangement = Arrangement.Center,
                 modifier = Modifier.fillMaxSize()) {
-
+                Image(
+                    painter = painterResource(R.drawable.img),
+                    contentDescription = "Pizza hot dog",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .padding(start = 16.dp, end = 16.dp)
+                        .size(80.dp, 80.dp)
+                        .clip(CircleShape)
+                        .border(2.dp, Color.Red, CircleShape)
+                )
                 Row(verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier.fillMaxWidth()) {
 
-                    Image(
-                        painter = painterResource(R.drawable.img),
-                        contentDescription = "Pizza hot dog",
-                        contentScale = ContentScale.Crop,
-                        modifier = Modifier
-                            .padding(start = 16.dp, end = 16.dp)
-                            .size(80.dp, 80.dp)
-                            .clip(CircleShape)
-                            .border(2.dp, Color.Red, CircleShape)
-                    )
+
 
                     Column {
                         Text("Pizza Hot Dog",
